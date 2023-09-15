@@ -1,0 +1,20 @@
+mapbox-search-listbox div {
+    z-index: 99999 !important;
+}
+
+.mapboxgl-popup {
+    max-width: 300px !important;
+    &-content {
+        .popup-card {
+            min-width: 280px;
+        }
+    }
+    &-close-button {
+        width: 25px !important;
+        height: 25px !important;
+        font-size: 25px;
+        color: var(--bs-primary);
+        top: 10px;
+        right: 10px;
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "name": "firesphere/openstreetmaps",
+    "description": "A frontend maps module.",
+    "type": "silverstripe-vendormodule",
+    "keywords": [
+        "silverstripe",
+        "openstreetmaps",
+        "maps",
+        "geodata"
+    ],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Simon `Firesphere` Erkelens",
+            "email": "simon@firesphere.dev"
+        }
+    ],
+    "require": {
+        "silverstripe/framework": ">=4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Firesphere\\OpenStreetmaps\\": "src"
+        }
+    },
+    "extra": {
+        "expose": [
+            "dist"
+        ]
+    }
+}
