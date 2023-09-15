@@ -6,6 +6,7 @@ let markers = [];
 let boundsLng = [];
 let boundsLat = [];
 const templ = document.createElement("DIV");
+// @todo make user-editable
 templ.innerHTML = "<div class='popup-card'>" +
     "<h4 class='heading'><a href='' target='_blank' class='url'></a></h4>" +
     "<div class='description'></div>" +
@@ -17,7 +18,7 @@ templ.innerHTML = "<div class='popup-card'>" +
 
 const map = new mapboxgl.Map({
     container: 'map', // container ID
-    style: 'mapbox://styles/mapbox/outdoors-v12', // style URL
+    style: 'mapbox://styles/mapbox/outdoors-v12', // style URL @todo use config
     center: window.locations[0][0], // starting position [lng, lat]
     maxZoom: 25,
 });
@@ -53,5 +54,6 @@ if (window.locations && window.locations.length) {
     const minLng = (getMin(boundsLng));
     const maxLat = (getMax(boundsLat));
     const minLat = (getMin(boundsLat));
+    // @todo make the padding configurable
     map.fitBounds([[maxLng, maxLat], [minLng, minLat]], {'padding': 50});
 }

@@ -3,6 +3,7 @@
 namespace Firesphere\OpenStreetmaps\Models;
 
 use Firesphere\OpenStreetmaps\Forms\MapboxField;
+use SilverStripe\ORM\DataList;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\ORM\FieldType\DBVarchar;
@@ -12,14 +13,15 @@ use SilverStripe\Subsites\Model\Subsite;
  * Class \Firesphere\OpenStreetmaps\Models\Location
  *
  * @property bool $Primary
- * @property string $MapboxStyle
  * @property string $Name
  * @property string $Address
+ * @property string $City
  * @property string $Country
+ * @property string $URL
  * @property string $Description
- * @property string $GoogleMapsLatField
- * @property string $GoogleMapsLngField
- * @property int $SiteID
+ * @property string $Latitude
+ * @property string $Longitude
+ * @method DataList|StaticImage[] StaticImages()
  */
 class Location extends DataObject
 {
@@ -39,9 +41,12 @@ class Location extends DataObject
     private static $has_one = [
     ];
 
+    private static $has_many = [
+        'StaticImages' => StaticImage::class
+    ];
+
     public function getCMSFields()
     {
-
         $fields = parent::getCMSFields();
         $fields->removeByName(['Latitude', 'Longitude', 'City', 'Country']);
         $mapboxField = MapboxField::create('Address', 'Address');

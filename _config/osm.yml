@@ -1,6 +1,8 @@
 ---
 Name: OpenStreetMaps
 ---
-Firesphere\OpenStreetmaps\Services:
+Firesphere\OpenStreetmaps\Services\OpenStreetmapService:
+  static:
+    style: 'mapbox/streets-v12'
   config:
-    country: ''
+    language: 'en'

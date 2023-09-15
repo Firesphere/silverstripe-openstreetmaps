@@ -5,8 +5,6 @@ namespace Firesphere\OpenStreetmaps\Forms;
 use Firesphere\OpenStreetmaps\Services\OpenStreetmapService;
 use SilverStripe\Core\Environment;
 use SilverStripe\Forms\HiddenField;
-use SilverStripe\Forms\LiteralField;
-use SilverStripe\Forms\ReadonlyField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\View\Requirements;
 
@@ -27,6 +25,7 @@ class MapboxField extends TextField
 
         return $this;
     }
+
     private static $record_fields = [
         'Address',
         'City',
@@ -41,11 +40,13 @@ class MapboxField extends TextField
         $config = OpenStreetmapService::config()->get('config');
         if (!empty($config)) {
             $config = json_encode($config);
-            Requirements::insertHeadTags(<<<MAPBOX
+            Requirements::insertHeadTags(
+                <<<MAPBOX
 <script type="text/javascript">
 var OSMConfig = $config;
 </script>
-MAPBOX);
+MAPBOX
+            );
         }
 
         Requirements::javascript('firesphere/openstreetmaps:dist/js/formfield.js');
@@ -70,6 +71,7 @@ MAPBOX);
 
         return $content;
     }
+
     public function forTemplate()
     {
         return parent::forTemplate();

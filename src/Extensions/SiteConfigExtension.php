@@ -13,7 +13,6 @@ use SilverStripe\ORM\FieldType\DBVarchar;
  * Class \Firesphere\OpenStreetmaps\Extensions\SiteConfigExtension
  *
  * @property SiteConfigExtension $owner
- * @property string $MapboxKey
  * @property int $DefaultZoom
  */
 class SiteConfigExtension extends DataExtension
