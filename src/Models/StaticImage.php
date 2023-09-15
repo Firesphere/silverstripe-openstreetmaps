@@ -19,7 +19,7 @@ use SilverStripe\ORM\FieldType\DBVarchar;
 class StaticImage extends DataObject
 {
     private static $table_name = 'StaticMapImage';
-    
+
     private static $db = [
         'Hash' => DBVarchar::class,
         'URL'  => DBVarchar::class,
