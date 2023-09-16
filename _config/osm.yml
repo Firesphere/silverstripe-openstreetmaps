@@ -4,5 +4,7 @@ Name: OpenStreetMaps
 Firesphere\OpenStreetmaps\Services\OpenStreetmapService:
   static:
     style: 'mapbox/streets-v12'
+    width: 300
+    height: 300
   config:
     language: 'en'
