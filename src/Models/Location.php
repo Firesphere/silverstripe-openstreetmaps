@@ -7,7 +7,6 @@ use SilverStripe\ORM\DataList;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\ORM\FieldType\DBVarchar;
-use SilverStripe\Subsites\Model\Subsite;
 
 /**
  * Class \Firesphere\OpenStreetmaps\Models\Location

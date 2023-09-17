@@ -30,6 +30,7 @@ const map = new mapboxgl.Map({
     style: 'mapbox://styles/mapbox/outdoors-v12', // style URL @todo use config
     center: window.locations[0][0], // starting position [lng, lat]
     maxZoom: 25,
+    zoom: 12
 });
 
 
