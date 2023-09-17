@@ -1,0 +1,12 @@
+---
+Name: "OSMExtensions"
+---
+Page:
+  extensions:
+    - Firesphere\OpenStreetmaps\Extensions\PageExtension
+PageController:
+  extensions:
+    - Firesphere\OpenStreetmaps\Extensions\PageControllerExtension
+SilverStripe\SiteConfig\SiteConfig:
+  extensions:
+    - Firesphere\OpenStreetmaps\Extensions\SiteConfigExtension

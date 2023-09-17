@@ -21,6 +21,8 @@ use SilverStripe\ORM\FieldType\DBVarchar;
  * @property string $Latitude
  * @property string $Longitude
  * @method DataList|StaticImage[] StaticImages()
+ * @method ManyManyList|Group[] Groups()
+ * @mixin LocationExtension
  */
 class Location extends DataObject
 {

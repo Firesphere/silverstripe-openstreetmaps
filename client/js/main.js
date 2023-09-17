@@ -6,38 +6,12 @@ let markers = [];
 let boundsLng = [];
 let boundsLat = [];
 const templ = document.createElement("DIV");
-// @todo make user-editable
-// <div class="card"><div class="card-body">
-// <div class="card-text"><h5 style="padding-right: 25px">${properties.name}</h5></div>
-templ.innerHTML = "<div class='card'>" +
-    "<div class='card-body'>" +
-    "<div class='card-text'>" +
-    "<h4 class='heading' style='padding-right: 25px'>" +
-    "<a href='' target='_blank' class='url'></a>" +
-    "</h4>" +
-    "<div class='description'></div>" +
-    "<div class='text'>" +
-    "<b>Address:</b> " +
-    "<span class='address'></span>" +
-    "</div>" +
-    "</div>" +
-    "</div>" +
-    "</div>";
-
-
-const map = new mapboxgl.Map({
-    container: 'map', // container ID
-    style: 'mapbox://styles/mapbox/outdoors-v12', // style URL @todo use config
-    center: window.locations[0][0], // starting position [lng, lat]
-    maxZoom: 20,
-    zoom: 8
-});
-
-
+templ.innerHTML = window.popupTemplate;
+console.log(window.popupTemplate);
+const map = new mapboxgl.Map(window.mapConfig);
 const getMax = (a) => {
     return Math.max(...a.map(e => Array.isArray(e) ? getMax(e) : e));
 }
-
 const getMin = (a) => {
     return Math.min(...a.map(e => Array.isArray(e) ? getMin(e) : e));
 }
@@ -46,8 +20,8 @@ if (window.locations && window.locations.length) {
     for (let i = 0; i < window.locations.length; i++) {
         let rendered = templ.cloneNode(true);
         rendered.getElementsByClassName('url')[0].innerHTML = locations[i][1];
-        rendered.getElementsByClassName('description')[0].innerHTML= locations[i][3] ?? 'This is a location';
         rendered.getElementsByClassName('url')[0].setAttribute('href', locations[i][4]);
+        rendered.getElementsByClassName('description')[0].innerHTML= locations[i][3] ?? 'This is a location';
         rendered.getElementsByClassName('address')[0].innerHTML = locations[i][2];
         let popup = new mapboxgl.Popup({})
             .setHTML(rendered.innerHTML);
