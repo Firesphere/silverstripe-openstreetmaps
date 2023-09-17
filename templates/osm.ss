@@ -1,2 +1,0 @@
-
-var coord = [$GoogleMapsLatField, $GoogleMapsLngField]
