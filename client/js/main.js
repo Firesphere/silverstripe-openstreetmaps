@@ -7,11 +7,20 @@ let boundsLng = [];
 let boundsLat = [];
 const templ = document.createElement("DIV");
 // @todo make user-editable
-templ.innerHTML = "<div class='popup-card'>" +
-    "<h4 class='heading'><a href='' target='_blank' class='url'></a></h4>" +
+// <div class="card"><div class="card-body">
+// <div class="card-text"><h5 style="padding-right: 25px">${properties.name}</h5></div>
+templ.innerHTML = "<div class='card'>" +
+    "<div class='card-body'>" +
+    "<div class='card-text'>" +
+    "<h4 class='heading' style='padding-right: 25px'>" +
+    "<a href='' target='_blank' class='url'></a>" +
+    "</h4>" +
     "<div class='description'></div>" +
-    "<div class='text'><b>Address:</b> " +
+    "<div class='text'>" +
+    "<b>Address:</b> " +
     "<span class='address'></span>" +
+    "</div>" +
+    "</div>" +
     "</div>" +
     "</div>";
 
