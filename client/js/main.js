@@ -29,8 +29,8 @@ const map = new mapboxgl.Map({
     container: 'map', // container ID
     style: 'mapbox://styles/mapbox/outdoors-v12', // style URL @todo use config
     center: window.locations[0][0], // starting position [lng, lat]
-    maxZoom: 25,
-    zoom: 12
+    maxZoom: 20,
+    zoom: 8
 });
 
 
@@ -60,10 +60,12 @@ if (window.locations && window.locations.length) {
         boundsLng.push(locations[i][0][0]);
         boundsLat.push(locations[i][0][1]);
     }
-    const maxLng = (getMax(boundsLng));
-    const minLng = (getMin(boundsLng));
-    const maxLat = (getMax(boundsLat));
-    const minLat = (getMin(boundsLat));
-    // @todo make the padding configurable
-    map.fitBounds([[maxLng, maxLat], [minLng, minLat]], {'padding': 50});
+    if (boundsLat.length > 1) {
+        const maxLng = (getMax(boundsLng));
+        const minLng = (getMin(boundsLng));
+        const maxLat = (getMax(boundsLat));
+        const minLat = (getMin(boundsLat));
+        // @todo make the padding configurable
+        map.fitBounds([[maxLng, maxLat], [minLng, minLat]], {'padding': 50});
+    }
 }
