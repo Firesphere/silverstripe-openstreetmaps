@@ -7,7 +7,7 @@ let boundsLng = [];
 let boundsLat = [];
 const templ = document.createElement("DIV");
 templ.innerHTML = window.popupTemplate;
-console.log(window.popupTemplate);
+
 const map = new mapboxgl.Map(window.mapConfig);
 const getMax = (a) => {
     return Math.max(...a.map(e => Array.isArray(e) ? getMax(e) : e));
