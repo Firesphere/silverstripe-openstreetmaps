@@ -23,6 +23,11 @@ class PageControllerExtension extends Extension
 
     public function onAfterInit()
     {
+        
+        $token = Environment::getEnv('MAPBOX_TOKEN');
+        if (!$token) {
+            return;
+        }
         /** @var SiteConfig|SiteConfigExtension $sc */
         $sc = SiteConfig::current_site_config();
         if ($this->owner->dataRecord->HasMap || $sc->GlobalMap) {
@@ -38,7 +43,6 @@ class PageControllerExtension extends Extension
             $config['center'] = [$sc->CenterLng, $sc->CenterLat];
             $cfg = json_encode($config);
 
-            $token = Environment::getEnv('MAPBOX_TOKEN');
 
             $tmpl = str_replace([PHP_EOL, "\r", "\n"], '', $sc->PopupTemplate ?? '<div></div>');
             Requirements::insertHeadTags(
