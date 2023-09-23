@@ -3,6 +3,7 @@
 namespace Firesphere\OpenStreetmaps\Extensions;
 
 use PageController;
+use SilverStripe\Core\Environment;
 use SilverStripe\Core\Extension;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\View\Requirements;
