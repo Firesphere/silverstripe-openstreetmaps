@@ -25,6 +25,9 @@ class PageControllerExtension extends Extension
         /** @var SiteConfig|SiteConfigExtension $sc */
         $sc = SiteConfig::current_site_config();
         if ($this->owner->dataRecord->HasMap || $sc->GlobalMap) {
+            Requirements::javascript('firesphere/openstreetmaps:dist/js/main.js');
+            Requirements::css('firesphere/openstreetmaps:dist/css/main.css');
+
             $config = [
                 'style' => 'mapbox://styles/' . $sc->Style,
             ];
