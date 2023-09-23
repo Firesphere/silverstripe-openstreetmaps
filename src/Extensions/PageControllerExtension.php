@@ -37,10 +37,13 @@ class PageControllerExtension extends Extension
             $config['center'] = [$sc->CenterLng, $sc->CenterLat];
             $cfg = json_encode($config);
 
+            $token = Environment::getEnv('MAPBOX_TOKEN');
+
             $tmpl = str_replace([PHP_EOL, "\r", "\n"], '', $sc->PopupTemplate ?? '<div></div>');
             Requirements::insertHeadTags(
                 <<<MAPCONFIG
 <script type="text/javascript">
+var mapboxtoken = "$token";
 var mapConfig = $cfg;
 var popupTemplate = "$tmpl";
 </script>
