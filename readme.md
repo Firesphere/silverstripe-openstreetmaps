@@ -1,5 +1,7 @@
 # Openstreetmaps for Silverstripe
 
+[GPL v3 or later](LICENSE.md)
+
 Usage:
 
 ```dotenv
