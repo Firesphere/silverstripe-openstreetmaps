@@ -1,3 +1,7 @@
+# Moved to codeberg
+
+https://codeberg.org/Firesphere/silverstripe-openstreetmaps
+
 # Openstreetmaps for Silverstripe
 
 [GPL v3 or later](LICENSE.md)
